@@ -25,7 +25,7 @@
               };
 
               var changedAlbumId = function() {
-                
+                  $scope.albuns = getAlbumById($scope.albumId + 1);
               };
 
               var httpData;
@@ -33,13 +33,14 @@
 
               $http.get('https://jsonplaceholder.typicode.com/photos')
               .then(function (e) {
-                  init(e.data)
+                  init(e.data);
               });
 
               function init(data) {
                 httpData = data;
                 $scope.albuns = getAlbumById(albumId);
                 $scope.albunsId = getIdAlbuns();
+                $scope.changedAlbumId = changedAlbumId;
               }
             }]
         }

@@ -3,11 +3,6 @@
     <select class="selection" ng-model="albumId" ng-options="albunsId.indexOf(item) as item for item in albunsId" ng-change="changedAlbumId()">
     </select>
   </div>
-
-<p>
-  TESTE: {{albumId + 1}}
-</p>
-
   <div>
     <ul class="list-group">
       <li ng-repeat="album in albuns" class="list-group-item">
