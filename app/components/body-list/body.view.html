@@ -1,5 +1,25 @@
-<ul class="list-group">
-  <li class="list-group-item">New <span class="badge">12</span></li>
-  <li class="list-group-item">Deleted <span class="badge">5</span></li>
-  <li class="list-group-item">Warnings <span class="badge">3</span></li>
-</ul>
+<div class="">
+  <div class="div-selection">
+    <select class="selection" ng-model="albumId" ng-options="albunsId.indexOf(item) as item for item in albunsId" ng-change="changedAlbumId()">
+    </select>
+  </div>
+
+<p>
+  TESTE: {{albumId + 1}}
+</p>
+
+  <div>
+    <ul class="list-group">
+      <li ng-repeat="album in albuns" class="list-group-item">
+        <img src="{{ album.url }}" alt="imgRest" />
+        <span>{{ album.title }}</span>
+        <span class="badge">{{ album.id }}</span>
+        <p>
+          <span>
+            <a class="hrefThumb" href="{{ album.thumbnailUrl }}"> thumbnailUrl </a>
+          </span>
+        </p>
+      </li>
+    </ul>
+  </div>
+</div>

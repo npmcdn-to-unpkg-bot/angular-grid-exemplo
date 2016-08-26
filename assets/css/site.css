@@ -25,3 +25,22 @@
  background-color: #0C6;
  text-decoration: none;
 }
+.list-group-item > img {
+  width: 42px;
+  height: 42px;
+}
+li.list-group-item {
+  color: black;
+}
+.hrefThumb {
+  position: absolute;
+  right: 985px;
+  top: 37px;
+}
+.selection {
+  color: black;
+}
+.div-selection {
+  text-align: right;
+  margin-bottom: 10px;
+}

@@ -9,20 +9,38 @@
             replace: true,
             templateUrl: 'app/components/body-list/body.view.html',
             controller: ['$scope', '$filter', '$http', function ($scope, $filter, $http) {
-              $http({
-                url: "https://jsonplaceholder.typicode.com/photos",
-                dataType: "json",
-                method: "GET",
-                headers: {
-                    "Content-Type": "application/json"
-                }
-              })
-              .success(function (data) {
-                  console.log(data);
-              })
-              .error(function (data, status, headers, config) {
 
+              var getAlbumById = function (id) {
+                return httpData.filter(function(e) { return e.albumId == id; });
+              };
+
+              var getIdAlbuns = function () {
+                var ids = httpData.reduce(function(array, el){
+                  if (array.indexOf(el.albumId) == -1) {
+                    array.push(el.albumId)
+                  }
+                    return array;
+                }, []);
+                return ids;
+              };
+
+              var changedAlbumId = function() {
+                
+              };
+
+              var httpData;
+              var albumId = 1;
+
+              $http.get('https://jsonplaceholder.typicode.com/photos')
+              .then(function (e) {
+                  init(e.data)
               });
+
+              function init(data) {
+                httpData = data;
+                $scope.albuns = getAlbumById(albumId);
+                $scope.albunsId = getIdAlbuns();
+              }
             }]
         }
     });
