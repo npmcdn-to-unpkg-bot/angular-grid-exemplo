@@ -1,0 +1,15 @@
+{
+  "name": "project-angular",
+  "version": "1.0.0",
+  "description": "angular grid example",
+  "main": "app.module.js",
+  "scripts": {
+    "test": "test",
+    "dev": "lite-server"
+  },
+  "author": "Daniel Colaço",
+  "license": "ISC",
+  "devDependencies": {
+    "lite-server": "^2.2.2"
+  }
+}
