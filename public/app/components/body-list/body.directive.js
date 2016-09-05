@@ -10,14 +10,10 @@
             templateUrl: 'app/components/body-list/body.view.html',
             controller: ['$scope', '$filter', '$http', function ($scope, $filter, $http) {
 
-              var getAlbumById = function (id) {
-                return httpData.filter(function(e) { return e.albumId == id; });
-              };
-
               var getIdAlbuns = function () {
                 var ids = httpData.reduce(function(array, el){
-                  if (array.indexOf(el.albumId) == -1) {
-                    array.push(el.albumId)
+                  if (array.indexOf(el.albumId) === -1) {
+                    array.push(el.albumId);
                   }
                     return array;
                 }, []);
@@ -25,20 +21,20 @@
               };
 
               var changedAlbumId = function() {
-                  $scope.albuns = getAlbumById($scope.albumId + 1);
+            	  var filter = $scope.albumId + 1;
+                  $scope.albuns = app.util.filterArrayObjBy(httpData, filter, "albumId");
               };
 
               var httpData;
-              var albumId = 1;
-
-              $http.get('https://jsonplaceholder.typicode.com/photos')
-              .then(function (e) {
+              
+              var adapter = app.adapter.get("GaleriaDeAlbuns");
+              adapter.then(function (e) {
                   init(e.data);
               });
 
               function init(data) {
                 httpData = data;
-                $scope.albuns = getAlbumById(albumId);
+                $scope.albuns = app.util.filterArrayObjBy(httpData, 1, "albumId");
                 $scope.albunsId = getIdAlbuns();
                 $scope.changedAlbumId = changedAlbumId;
               }
