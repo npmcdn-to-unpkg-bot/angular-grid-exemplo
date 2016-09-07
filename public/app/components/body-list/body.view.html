@@ -1,20 +1,58 @@
 <div class="">
   <div class="div-selection">
-    <select class="selection" ng-model="albumId" ng-options="albunsId.indexOf(item) as item for item in albunsId" ng-change="changedAlbumId()">
+    <select class="selection" ng-model="rarity" ng-options="item as item for item in raritys" ng-change="changedRarity()">
     </select>
   </div>
   <div>
     <ul class="list-group">
-      <li ng-repeat="album in albuns" class="list-group-item">
-        <img src="{{ album.url }}" alt="imgRest" />
-        <span>{{ album.title }}</span>
-        <span class="badge">{{ album.id }}</span>
-        <p>
-          <span>
-            <a class="hrefThumb" href="{{ album.thumbnailUrl }}"> thumbnailUrl </a>
-          </span>
-        </p>
-      </li>
+      <li ng-repeat="result in results" class="list-group-item">   
+        <img class="img-result" src="{{ result.icon }}" alt="imgRest" />
+        	<span class="badge">CP: {{ result.iv }}</span>
+        	<span class="badge"> {{ result.rarity }}</span>
+   		 	<div class="div-content {{ result.rarity }}">
+	   		 	<span>{{ result.name }}</span><br/>	        	
+	           	<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 264.938 264.938" style="height: 15px; width: 15px;" xml:space="preserve" width="512px" height="512px">
+				<g>
+					<g>
+						<g>
+							<path d="M156.831,70.804c0,13.473-10.904,24.396-24.357,24.396c-13.434,0-24.357-10.923-24.357-24.396     c0-13.434,10.904-24.337,24.357-24.337C145.927,46.467,156.831,57.37,156.831,70.804z M203.298,70.795     c0,8.764-1.661,17.098-4.563,24.836c-9.282,27.571-70.736,169.307-70.736,169.307S70.14,110.403,65.118,92.68     c-2.237-6.868-3.478-14.196-3.478-21.866C61.64,31.743,93.354,0,132.474,0C171.593-0.01,203.307,31.733,203.298,70.795z      M177.661,71.078c0-24.953-20.214-45.197-45.187-45.197c-24.953,0-45.177,20.234-45.177,45.187s20.224,45.187,45.177,45.187     C157.446,116.255,177.661,96.031,177.661,71.078z" fill="#006DF0"/>
+						</g>
+					</g>
+				</g>
+				<g>
+				</g>
+				<g>
+				</g>
+				<g>
+				</g>
+				<g>
+				</g>
+				<g>
+				</g>
+				<g>
+				</g>
+				<g>
+				</g>
+				<g>
+				</g>
+				<g>
+				</g>
+				<g>
+				</g>
+				<g>
+				</g>
+				<g>
+				</g>
+				<g>
+				</g>
+				<g>
+				</g>
+				<g>
+				</g>
+				</svg>
+				<span>{{ result.coords }}, {{ result.until }}</span>
+        	</div>
+      </li>      
     </ul>
   </div>
 </div>

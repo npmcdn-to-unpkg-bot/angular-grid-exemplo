@@ -4,6 +4,7 @@
   "description": "angular grid example",
   "main": "app.module.js",
   "scripts": {
+    "start": "npm run dev",
     "test": "test",
     "dev": "lite-server"
   },
